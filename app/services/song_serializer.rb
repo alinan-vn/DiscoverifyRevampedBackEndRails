@@ -14,16 +14,10 @@ class SongSerializer
                     :only => [:name]
                 }                
             }
-        options[:except] = [:updated_at]
-        
+        options[:except] = [:created_at, :updated_at]
+
+        # JSON.pretty_generate(options)
         @song.to_json(options)
     end
 
 end
-
-# def to_serialized_json
-#     @sighting_object.to_json(:include => {
-#       :bird => {:only => [:name, :species]},
-#       :location => {:only => [:latitude, :longitude]}
-#     }, :except => [:updated_at])
-#   end
